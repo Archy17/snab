@@ -57,7 +57,7 @@ handle_call({spros, Name, P_spros}, _From, State) ->
       {reply, Response, NewState};
     error ->
       {reply, {error, account_does_not_exist}, State}
-  end;
+  end.
 
 
 
