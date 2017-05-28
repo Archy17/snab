@@ -28,7 +28,7 @@ handle_call({creat, Name}, _From, State) ->
  case dets:lookup(md, Name) of
   [] -> dets:insert(md, {Name}),
   {reply, {oke}, State};
-  _else -> error,
+  _else -> 
   {reply, {error}, State}
   
  end.
