@@ -20,7 +20,7 @@ start_link() ->
   create(Name) ->
   gen_server:call(?SERVER, {create, Name}).
 
-
+%%
 init([]) ->
   {ok, dets:open_file(md, [])}.
 
