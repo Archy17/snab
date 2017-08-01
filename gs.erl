@@ -16,19 +16,12 @@
 start_link() ->
   gen_server:start_link({local, ?SERVER}, ?MODULE, [], []).
 
-<<<<<<< HEAD
   create(Name, Adress,Bissnes) ->
   gen_server:call(?SERVER, {create, Name , Adress, Bissnes}).
-=======
-  create(Name) ->
-  gen_server:call(?SERVER, {create, Name}).
-
->>>>>>> 03581d4df352f29b19e6273d57d02eea75180127
 
   close() -> gen_server:call(?SERVER, {close}).
 	  
 init([]) ->
-<<<<<<< HEAD
   {ok, dets:open_file(md,  [{type, set}])}.
 
 handle_call({create, Name, Adress,Bissnes}, _From, State) ->
@@ -48,19 +41,6 @@ handle_call(_Request, _From, State) ->
   {reply, Reply, State}.
 
 									   
-=======
-  dets:open_file(md, []).
-
-handle_call({create, Name}, _From, State) ->
- case dets:lookup(md, Name) of
-  [] -> dets:insert(md, {Name}),
-  {reply, {oke}, State};
-  _else -> 
-  {reply, {error}, State}
-  
- end.
-
->>>>>>> 03581d4df352f29b19e6273d57d02eea75180127
 handle_cast(_Msg, State) ->
   {noreply, State}.
 
