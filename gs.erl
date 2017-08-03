@@ -3,36 +3,24 @@
 -behaviour(gen_server).
 
 
-<<<<<<< HEAD
 -export([start_link/0, create/3, read/1, close/0]).
-=======
--export([start_link/0, create/3, close/0]).
->>>>>>> 396965426f54ffa87476dcd0356612542fc9e1f7
 
 
 -export([init/1, handle_call/3, handle_cast/2, handle_info/2,
          terminate/2, code_change/3]).
 
-<<<<<<< HEAD
-=======
-
--define(SERVER, ?MODULE).
->>>>>>> 396965426f54ffa87476dcd0356612542fc9e1f7
 
 -define(SERVER, ?MODULE).
 
-    
+  
 start_link() ->
   gen_server:start_link({local, ?SERVER}, ?MODULE, [], []).
 
   create(Name, Adress,Bissnes) ->
   gen_server:call(?SERVER, {create, Name , Adress, Bissnes}).
-<<<<<<< HEAD
   
   read(Name) ->
   gen_server:call(?SERVER, {read, Name}).
-=======
->>>>>>> 396965426f54ffa87476dcd0356612542fc9e1f7
 
   close() -> gen_server:call(?SERVER, {close}).
 	  
@@ -47,7 +35,6 @@ handle_call({create, Name, Adress,Bissnes}, _From, State) ->
   {reply, {error}, State}
 			end;
 
-<<<<<<< HEAD
 			
 			
 handle_call({read, Name}, _From, State) ->
@@ -68,11 +55,6 @@ handle_call({read, Name}, _From, State) ->
 handle_call({close}, _From, State) -> dets:close(md),
 	{reply, {okeKlose}, State};
 									 
-=======
-handle_call({close}, _From, State) -> dets:close(md),
-	{reply, {oke}, State}
-									   end;
->>>>>>> 396965426f54ffa87476dcd0356612542fc9e1f7
 
 handle_call(_Request, _From, State) ->
   Reply = ok,
